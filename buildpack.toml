@@ -8,9 +8,11 @@ homepage = "https://github.com/jkutner/no-secrets-buildpack"
 
 [[stacks]]
 id = "io.buildpacks.stacks.bionic"
+mixins = ["git"]
 
 [[stacks]]
 id = "io.buildpacks.samples.stacks.bionic"
+mixins = ["git"]
 
 [[stacks]]
 id = "heroku-18"
