@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -eu
+
+env_dir="$2/env"
+if compgen -G "${env_dir}/*" > /dev/null; then
+  for var in ${env_dir}/*; do
+    declare "$(basename ${var})=$(<${var})"
+  done
+fi
+
+declare LITERAL=0 GLOBAL=0 SCAN_CACHED=0 SCAN_NO_INDEX=0
+export SCAN_UNTRACKED=1 RECURSIVE=1
+
+source ${CNB_BUILDPACK_DIR:-.}/opt/git-secrets
+
+if [ -z "${GIT_SECRETS_PATTERNS:-}" ]; then
+  _=$(register_aws)
+else
+  # TODO read each line and add_config
+  echo "TODO"
+fi
+
+echo "-> Scanning for secrets"
+if scan *; then
+  echo "   No patterns matched"
+else
+  echo ""
+  echo "[ERROR] Matched one or more prohibited patterns"
+  echo ""
+fi
