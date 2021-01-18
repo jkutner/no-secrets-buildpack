@@ -1,5 +1,7 @@
 # No Secrets Buildpack
 
+![Version](https://img.shields.io/badge/dynamic/json?url=https://cnb-registry-api.herokuapp.com/api/v1/buildpacks/jkutner/no-secrets&label=Version&query=$.latest.version)
+
 This is a [Cloud Native Buildpack](https://buildpack.io) that scans your source code for secrets before building and image. This can prevent leaking secrets into Docker registries or runtime environments where they should not be.
 
 ## Usage
