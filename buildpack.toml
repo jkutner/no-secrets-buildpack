@@ -2,9 +2,14 @@ api = "0.4"
 
 [buildpack]
 id = "jkutner/no-secrets"
-version = "1.0.0"
+version = "1.0.1"
 name = "No Secrets"
 homepage = "https://github.com/jkutner/no-secrets-buildpack"
+description = "A buildpack that prevents secrets from being included in an image"
+keywords = ["secrets", "security", "git"]
+
+[[buildpack.licenses]]
+type = "MIT"
 
 [[stacks]]
 id = "io.buildpacks.stacks.bionic"
